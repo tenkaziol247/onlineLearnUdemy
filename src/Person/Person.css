@@ -1,0 +1,40 @@
+.myPerson{
+    width: 300px;
+    height: 70px;
+    margin: 20px auto;
+    border: 1px solid black;
+    padding: 10px;
+    box-shadow: 2px 3px 3px 1px rgba(128, 128, 128, 0.253);
+    position: relative;
+}
+
+.myPerson > p{
+    margin: 0 0 10px 0;
+}
+
+.myPerson > input{
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    width: 150px;
+    height: 20px;
+}
+
+.myPerson > input:focus{
+    border: 1px solid gray;
+    outline: transparent;
+}
+
+.myPerson .close{
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    border: 1px solid black;
+    line-height: 18px;
+    font-weight: bold;
+    color: white;
+    position: absolute;
+    right: -1px;
+    top: -1px;
+    cursor: pointer;
+}
