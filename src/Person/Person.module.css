@@ -1,30 +1,36 @@
-.myPerson{
+.Person{
     width: 300px;
-    height: 70px;
-    margin: 20px auto;
-    border: 1px solid black;
-    padding: 10px;
-    box-shadow: 2px 3px 3px 1px rgba(128, 128, 128, 0.253);
-    position: relative;
+        height: 70px;
+        margin: 20px auto;
+        border: 1px solid black;
+        padding: 10px;
+        box-shadow: 2px 3px 3px 1px rgba(128, 128, 128, 0.253);
+        position: relative;
 }
 
-.myPerson > p{
+@media (min-width: 600px) {
+    .Person{
+        width: 450px;
+    }
+}
+
+.Person > p{
     margin: 0 0 10px 0;
 }
 
-.myPerson > input{
+.Person > input{
     border: 1px solid #ccc;
     border-radius: 2px;
     width: 150px;
     height: 20px;
 }
 
-.myPerson > input:focus{
+.Person > input:focus{
     border: 1px solid gray;
     outline: transparent;
 }
 
-.myPerson .close{
+.close{
     display: block;
     width: 20px;
     height: 20px;
