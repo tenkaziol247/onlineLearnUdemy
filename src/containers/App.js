@@ -13,6 +13,7 @@ class App extends Component {
       { id: 'akfjewr', name: 'Le', age: 24 },
     ],
     isShowPerson: false,
+    countChange: 0
   }
 
   togglePersonHandler = () => {
@@ -30,8 +31,11 @@ class App extends Component {
 
     persons[personIndex] = person;
 
-    this.setState({
-      persons: persons
+    this.setState((prevState, props) => {
+      return {
+        persons: persons,
+        countChange: prevState.countChange + 1,
+      }
     })
   }
 
@@ -46,18 +50,18 @@ class App extends Component {
     let persons = null;
 
     if (this.state.isShowPerson) {
-      persons = <Persons 
-                  persons={this.state.persons} 
-                  clicked={this.deletePersonHandler} 
-                  changed={this.nameChangeHandler} />;
+      persons = <Persons
+        persons={this.state.persons}
+        clicked={this.deletePersonHandler}
+        changed={this.nameChangeHandler} />;
     }
 
     return (
       <div className={classes.App}>
-        <Cockpit 
+        <Cockpit
           isShowPerson={this.state.isShowPerson}
           persons={this.state.persons}
-          clicked={this.togglePersonHandler}/>
+          clicked={this.togglePersonHandler} />
         {persons}
       </div>
     )

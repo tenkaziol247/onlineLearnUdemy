@@ -1,31 +1,40 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 
 import classes from './Cockpit.module.css';
 
-const cockpit = (props) => {
-    let assignedClasses = [];
-    let btnClass = '';
+const Cockpit = (props) => {
+  const toggleBtnRef = useRef(null);
 
-    if(props.isShowPerson){
-        btnClass = classes.Red;
+  useEffect(() => {
+    toggleBtnRef.current.click();
+    return () => {
+      console.log('Cockpit cleanup work')
     }
+  }, []);
 
-    if (props.persons.length <= 2) {
-      assignedClasses.push(classes.red);
-    }
+  let assignedClasses = [];
+  let btnClass = '';
 
-    if (props.persons.length <= 1) {
-      assignedClasses.push(classes.bold);
-    }
+  if (props.isShowPerson) {
+    btnClass = classes.Red;
+  }
 
-    return (
-        <div className={classes.Cockpit}>
-            <h1>Hi, I'm react app</h1>
-            <p className={assignedClasses.join(' ')}>This is really working!</p>
-            <button className={btnClass} onClick={props.clicked}>Toggle Person</button>
-        </div>
-    )
+  if (props.persons.length <= 2) {
+    assignedClasses.push(classes.red);
+  }
+
+  if (props.persons.length <= 1) {
+    assignedClasses.push(classes.bold);
+  }
+
+  return (
+    <div className={classes.Cockpit}>
+      <h1>Hi, I'm react app</h1>
+      <p className={assignedClasses.join(' ')}>This is really working!</p>
+      <button ref={toggleBtnRef} className={btnClass} onClick={props.clicked}>Toggle Person</button>
+    </div>
+  )
 };
 
 
-export default cockpit;
+export default Cockpit;
